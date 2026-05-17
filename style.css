@@ -134,9 +134,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   background: linear-gradient(135deg, #e8d5b0, #cfe5ee);
 }
+
+.mini img.focus-top    { object-position: center 20%; }
+.mini img.focus-bottom { object-position: center 80%; }
 
 .mini:hover {
   transform: scale(1.25) rotate(0deg) !important;
