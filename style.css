@@ -73,8 +73,10 @@ body {
     0 4px 10px rgba(217, 119, 87, 0.35);
   transition: transform 0.2s ease;
 }
-.belated-badge:hover {
-  transform: rotate(-4deg) translateY(-0.25em) scale(1.05);
+@media (hover: hover) {
+  .belated-badge:hover {
+    transform: rotate(-4deg) translateY(-0.25em) scale(1.05);
+  }
 }
 
 .sub {
@@ -142,13 +144,25 @@ body {
 .mini img.focus-top    { object-position: center 20%; }
 .mini img.focus-bottom { object-position: center 80%; }
 
-.mini:hover {
+/* Hover zoom (desktop only) */
+@media (hover: hover) {
+  .mini:hover {
+    transform: scale(1.25) rotate(0deg) !important;
+    z-index: 5;
+    box-shadow:
+      0 6px 14px rgba(30, 74, 107, 0.22),
+      0 14px 28px rgba(30, 74, 107, 0.14);
+    transition-delay: 0s;
+  }
+}
+
+/* Tap-to-zoom (touch devices) */
+.mini.tapped {
   transform: scale(1.25) rotate(0deg) !important;
   z-index: 5;
   box-shadow:
     0 6px 14px rgba(30, 74, 107, 0.22),
     0 14px 28px rgba(30, 74, 107, 0.14);
-  transition-delay: 0s;
 }
 
 /* gentle scrapbook tilts (re-used between columns) */
@@ -175,7 +189,9 @@ body {
   flex-direction: column;
   max-width: min(360px, 100%);
 }
-.hero-photo:hover { transform: rotate(0deg) scale(1.02); }
+@media (hover: hover) {
+  .hero-photo:hover { transform: rotate(0deg) scale(1.02); }
+}
 
 .hero-photo img {
   width: 100%;
@@ -268,11 +284,13 @@ body {
     0 6px 16px rgba(30, 74, 107, 0.35);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
-.read-btn:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 6px 0 #16364f,
-    0 10px 24px rgba(30, 74, 107, 0.4);
+@media (hover: hover) {
+  .read-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 6px 0 #16364f,
+      0 10px 24px rgba(30, 74, 107, 0.4);
+  }
 }
 .read-btn:active {
   transform: translateY(1px);

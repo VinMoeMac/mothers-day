@@ -93,6 +93,22 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeLetter();
     });
+
+    // Tap-to-zoom for touch devices (no hover capability)
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    if (isTouch) {
+      document.querySelectorAll('.mini').forEach(photo => {
+        photo.addEventListener('click', e => {
+          const wasTapped = photo.classList.contains('tapped');
+          document.querySelectorAll('.mini.tapped').forEach(p => p.classList.remove('tapped'));
+          if (!wasTapped) photo.classList.add('tapped');
+          e.stopPropagation();
+        });
+      });
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.mini.tapped').forEach(p => p.classList.remove('tapped'));
+      });
+    }
   </script>
 
 </body>
