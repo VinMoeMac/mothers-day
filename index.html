@@ -11,79 +11,92 @@
 </head>
 <body>
 
-  <main class="page">
+  <!-- ============ TITLE ============ -->
+  <header class="title-bar">
+    <h1 class="title">
+      <span class="title-word">Happy</span>
+      <button class="belated-badge" type="button" aria-label="belated">belated</button>
+      <span class="title-word">Mother's&nbsp;Day</span>
+    </h1>
+    <p class="sub">for the best mom in the world</p>
+  </header>
 
-    <!-- LEFT: title + letter -->
-    <section class="left-panel">
-      <header class="title-block">
-        <p class="kicker">for the best mom in the world</p>
-        <h1 class="title">Happy<br/>Mother's Day</h1>
-        <p class="sub">a little scrapbook, made with love</p>
-      </header>
+  <!-- ============ PHOTO LAYOUT ============ -->
+  <main class="photo-stage">
 
-      <article class="letter">
-        <div class="tape tape-top-left"></div>
-        <div class="tape tape-top-right"></div>
-        <h2>Dear Mom,</h2>
-        <p>
-          <!-- ✏️ REPLACE THIS WITH YOUR OWN MESSAGE -->
-          Thank you for everything. For every meal, every late-night talk,
-          every time you believed in me when I couldn't believe in myself.
-          This little site is just a small way of saying what words never quite capture —
-          I love you, and I'm so lucky you're my mom.
-        </p>
-        <p class="signed">— with all my love,<br/>Vincent</p>
-      </article>
-    </section>
+    <!-- LEFT column of 5 small photos -->
+    <div class="side-col side-left">
+      <figure class="mini r1"><img src="images/photo1.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r2"><img src="images/photo2.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r3"><img src="images/photo3.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r4"><img src="images/photo4.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r5"><img src="images/photo5.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+    </div>
 
-    <!-- RIGHT: photo collage -->
-    <section class="right-panel">
-      <div class="gallery">
+    <!-- CENTER big photo of Mom -->
+    <figure class="hero-photo">
+      <div class="tape tape-top-left"></div>
+      <div class="tape tape-top-right"></div>
+      <img src="images/mom.jpg" alt="Mom" onerror="this.parentElement.classList.add('photo-missing')" />
+      <figcaption>my mom ♥</figcaption>
+    </figure>
 
-        <figure class="polaroid rotate-left">
-          <div class="tape tape-mini"></div>
-          <img src="images/photo1.jpg" alt="Family photo" onerror="this.parentElement.classList.add('photo-missing')" />
-          <figcaption>that time we...</figcaption>
-        </figure>
-
-        <figure class="polaroid rotate-right">
-          <div class="tape tape-mini"></div>
-          <img src="images/photo2.jpg" alt="Family photo" onerror="this.parentElement.classList.add('photo-missing')" />
-          <figcaption>my favorite smile</figcaption>
-        </figure>
-
-        <figure class="polaroid rotate-left-sm">
-          <div class="tape tape-mini"></div>
-          <img src="images/photo3.jpg" alt="Family photo" onerror="this.parentElement.classList.add('photo-missing')" />
-          <figcaption>family</figcaption>
-        </figure>
-
-        <figure class="polaroid rotate-right-sm">
-          <div class="tape tape-mini"></div>
-          <img src="images/photo4.jpg" alt="Family photo" onerror="this.parentElement.classList.add('photo-missing')" />
-          <figcaption>holidays at home</figcaption>
-        </figure>
-
-        <figure class="polaroid rotate-right">
-          <div class="tape tape-mini"></div>
-          <img src="images/photo5.jpg" alt="Family photo" onerror="this.parentElement.classList.add('photo-missing')" />
-          <figcaption>just you and me</figcaption>
-        </figure>
-
-        <figure class="polaroid rotate-left">
-          <div class="tape tape-mini"></div>
-          <img src="images/photo6.jpg" alt="Family photo" onerror="this.parentElement.classList.add('photo-missing')" />
-          <figcaption>love you, Mom</figcaption>
-        </figure>
-
-      </div>
-    </section>
+    <!-- RIGHT column of 5 small photos -->
+    <div class="side-col side-right">
+      <figure class="mini r2"><img src="images/photo6.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r1"><img src="images/photo7.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r4"><img src="images/photo8.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r3"><img src="images/photo9.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+      <figure class="mini r5"><img src="images/photo10.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
+    </div>
 
   </main>
 
+  <!-- ============ READ MESSAGE BUTTON ============ -->
+  <div class="message-action">
+    <button class="read-btn" type="button" onclick="openLetter()">
+      📜 Read your message
+    </button>
+  </div>
+
   <footer class="footer">
-    <p>made with love, just for you · <span class="shells">𓆉 𓇼 𓆉</span></p>
+    made with love · <span class="shells">𓆉 𓇼 𓆉</span>
   </footer>
+
+  <!-- ============ LETTER MODAL ============ -->
+  <div class="modal-backdrop" id="letterModal" onclick="closeLetterIfBackdrop(event)">
+    <article class="letter" role="dialog" aria-modal="true" aria-labelledby="letter-heading">
+      <button class="close-btn" type="button" onclick="closeLetter()" aria-label="close">×</button>
+      <div class="tape tape-top-left"></div>
+      <div class="tape tape-top-right"></div>
+      <h2 id="letter-heading">Dear Mom,</h2>
+      <p>
+        <!-- ✏️ REPLACE THIS WITH YOUR OWN MESSAGE -->
+        Thank you for everything. For every meal, every late-night talk,
+        every time you believed in me when I couldn't believe in myself.
+        This little site is just a small way of saying what words never quite capture —
+        I love you, and I'm so lucky you're my mom.
+      </p>
+      <p class="signed">— with all my love,<br/>Vincent</p>
+    </article>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById('letterModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLetter() {
+      document.getElementById('letterModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeLetterIfBackdrop(e) {
+      if (e.target.id === 'letterModal') closeLetter();
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLetter();
+    });
+  </script>
 
 </body>
 </html>
