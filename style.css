@@ -378,14 +378,14 @@ body {
     gap: 1.5rem;
   }
   .center-stack { order: -1; }
-  .side-left  { grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+  .side-left  { grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
   .side-right { grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
   .hero-photo { max-width: 380px; }
 }
 
 @media (max-width: 500px) {
   body { padding: 1rem 1rem 0.5rem; }
-  .side-left  { grid-template-columns: repeat(5, 1fr); gap: 0.4rem; }
+  .side-left  { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
   .side-right { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
   .mini { padding: 4px; }
   .belated-badge { font-size: 0.85rem; padding: 0.2em 0.7em; }
