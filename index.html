@@ -11,16 +11,6 @@
 </head>
 <body>
 
-  <!-- ============ TITLE ============ -->
-  <header class="title-bar">
-    <h1 class="title">
-      <span class="title-word">Happy</span>
-      <button class="belated-badge" type="button" aria-label="belated">belated</button>
-      <span class="title-word">Mother's&nbsp;Day</span>
-    </h1>
-    <p class="sub">for the best mom in the world</p>
-  </header>
-
   <!-- ============ PHOTO LAYOUT ============ -->
   <main class="photo-stage">
 
@@ -33,13 +23,32 @@
       <figure class="mini r5"><img src="images/photo5.jpg" alt="" onerror="this.parentElement.classList.add('photo-missing')"/></figure>
     </div>
 
-    <!-- CENTER big photo of Mom -->
-    <figure class="hero-photo">
-      <div class="tape tape-top-left"></div>
-      <div class="tape tape-top-right"></div>
-      <img src="images/mom.jpg" alt="Mom" onerror="this.parentElement.classList.add('photo-missing')" />
-      <figcaption>my mom ♥</figcaption>
-    </figure>
+    <!-- CENTER stack: title -> big photo -> read button -->
+    <div class="center-stack">
+
+      <header class="title-bar">
+        <h1 class="title">
+          <span class="title-word">Happy</span>
+          <button class="belated-badge" type="button" aria-label="belated">belated</button>
+          <span class="title-word">Mother's&nbsp;Day</span>
+        </h1>
+        <p class="sub">for the best mom in the world</p>
+      </header>
+
+      <figure class="hero-photo">
+        <div class="tape tape-top-left"></div>
+        <div class="tape tape-top-right"></div>
+        <img src="images/mom.jpg" alt="Mom" onerror="this.parentElement.classList.add('photo-missing')" />
+        <figcaption>my mom ♥</figcaption>
+      </figure>
+
+      <div class="message-action">
+        <button class="read-btn" type="button" onclick="openLetter()">
+          📜 Read your message
+        </button>
+      </div>
+
+    </div>
 
     <!-- RIGHT column of 4 small photos -->
     <div class="side-col side-right">
@@ -50,13 +59,6 @@
     </div>
 
   </main>
-
-  <!-- ============ READ MESSAGE BUTTON ============ -->
-  <div class="message-action">
-    <button class="read-btn" type="button" onclick="openLetter()">
-      📜 Read your message
-    </button>
-  </div>
 
   <footer class="footer">
     made with love · <span class="shells">𓆉 𓇼 𓆉</span>

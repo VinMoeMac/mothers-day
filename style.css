@@ -34,7 +34,7 @@ body {
    ============================================================ */
 .title-bar {
   text-align: center;
-  margin: 1rem auto 2rem;
+  margin: 0 auto 1rem;
 }
 
 .title {
@@ -91,13 +91,21 @@ body {
   gap: 1.5rem;
   max-width: 1300px;
   margin: 0 auto;
-  align-items: center;
+  align-items: stretch;
 }
 
 .side-col {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.8rem;
+  align-content: space-between;
+}
+
+.center-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .mini {
@@ -220,7 +228,7 @@ body {
    ============================================================ */
 .message-action {
   text-align: center;
-  margin: 2.5rem auto 1rem;
+  margin: 0 auto;
 }
 
 .read-btn {
@@ -369,9 +377,10 @@ body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  .center-stack { order: -1; }
   .side-left  { grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
   .side-right { grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
-  .hero-photo { order: -1; max-width: 380px; }
+  .hero-photo { max-width: 380px; }
 }
 
 @media (max-width: 500px) {
