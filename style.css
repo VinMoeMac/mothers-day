@@ -1,0 +1,278 @@
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Kalam', 'Comic Sans MS', cursive;
+  background: #fdf6ec;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 200, 220, 0.25) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 230, 180, 0.25) 0, transparent 40%);
+  color: #3a2e2a;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url('images/background.jpg') center/cover no-repeat;
+  background-color: #f4c2c2; /* fallback color if image missing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(80, 30, 50, 0.35) 0%,
+    rgba(80, 30, 50, 0.55) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  animation: fadeUp 1.4s ease-out;
+}
+
+.hero-kicker {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  letter-spacing: 2px;
+  opacity: 0.95;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: clamp(4rem, 12vw, 9rem);
+  line-height: 0.95;
+  text-shadow: 3px 4px 0 rgba(0,0,0,0.15);
+  margin-bottom: 1.5rem;
+}
+
+.hero-sub {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  opacity: 0.95;
+}
+
+.scroll-hint {
+  margin-top: 4rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  animation: bounce 2s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* ---------- Letter ---------- */
+.letter-section {
+  position: relative;
+  max-width: 700px;
+  margin: 6rem auto;
+  padding: 3rem 2.5rem;
+  background: #fffdf5;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.08),
+    0 20px 40px rgba(0,0,0,0.06);
+  transform: rotate(-1deg);
+  border-radius: 4px;
+}
+
+.letter-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      transparent 0,
+      transparent 31px,
+      rgba(120, 90, 80, 0.12) 31px,
+      rgba(120, 90, 80, 0.12) 32px
+    );
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+.letter h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: #b8456b;
+}
+
+.letter p {
+  font-family: 'Kalam', cursive;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.signed {
+  font-family: 'Caveat', cursive !important;
+  font-size: 1.5rem !important;
+  text-align: right;
+  color: #b8456b;
+  margin-top: 1.5rem !important;
+}
+
+/* ---------- Tape ---------- */
+.tape {
+  position: absolute;
+  width: 90px;
+  height: 28px;
+  background: rgba(255, 230, 150, 0.7);
+  border: 1px solid rgba(200, 180, 100, 0.3);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.tape-top-left { top: -14px; left: 30px; transform: rotate(-8deg); }
+.tape-top-right { top: -14px; right: 30px; transform: rotate(6deg); }
+
+.tape-mini {
+  width: 60px;
+  height: 20px;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+/* ---------- Gallery ---------- */
+.gallery-section {
+  padding: 4rem 2rem 6rem;
+  text-align: center;
+}
+
+.gallery-heading {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #b8456b;
+  margin-bottom: 4rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.polaroid {
+  position: relative;
+  background: #fff;
+  padding: 14px 14px 50px;
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.1),
+    0 12px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow:
+    0 8px 16px rgba(0,0,0,0.15),
+    0 20px 40px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #f0e8de;
+}
+
+.polaroid figcaption {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 12px;
+  color: #6b4a3d;
+}
+
+.rotate-left   { transform: rotate(-4deg); }
+.rotate-right  { transform: rotate(3deg); }
+.rotate-left-sm  { transform: rotate(-2deg); }
+.rotate-right-sm { transform: rotate(2deg); }
+
+/* Placeholder when image is missing */
+.photo-missing img {
+  visibility: hidden;
+}
+.photo-missing {
+  position: relative;
+}
+.photo-missing::before {
+  content: "📷 add photo";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  aspect-ratio: 1 / 1;
+  background: #f4ebe0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: #b8a597;
+  border: 2px dashed #d0bda9;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 3rem 2rem 4rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: #b8456b;
+}
+
+.hearts {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .letter-section {
+    margin: 4rem 1rem;
+    padding: 2rem 1.5rem;
+  }
+  .gallery {
+    gap: 2.5rem 1rem;
+  }
+}
